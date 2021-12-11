@@ -1,0 +1,35 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node serv.js",
+    "start.dev": "nodemon serv.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EpitechPromo2024/B-DEV-500-PAR-5-1-dashboard-kylian.germain.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EpitechPromo2024/B-DEV-500-PAR-5-1-dashboard-kylian.germain/issues"
+  },
+  "homepage": "https://github.com/EpitechPromo2024/B-DEV-500-PAR-5-1-dashboard-kylian.germain#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "firebase": "^9.4.1",
+    "googleapis": "^39.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "type": "module"
+}

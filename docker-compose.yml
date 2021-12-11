@@ -1,0 +1,19 @@
+version: "3"
+services:
+  server:
+    image: node:lts
+    env_file: .env
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server:/app/server
+    command: sh -c "cd /app/server && npm install && npm run ${MODE}"
+
+  dash:
+    image: node:lts
+    env_file: .env
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./dash:/app/dash
+    command: sh -c "cd /app/dash && npm install && npm start"
