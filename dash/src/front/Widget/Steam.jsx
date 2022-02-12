@@ -51,8 +51,8 @@ export function ContentSteam(props) {
         try {
             const response = await requestPostServer(process.env.REACT_APP_URL+"/get_steam", message, props.token);
 
-            const adddb = JSON.stringify({'name': props.name, 'widget': "steam", "value":message});
-            await requestPostServer(process.env.REACT_APP_URL+"/set_widget", adddb, props.token);
+            const adddb = JSON.stringify({ 'name': props.name, 'widget': "Steam", 'value': JSON.stringify({ 'value': game }), 'route': `widgets/${props.index}`});
+            await requestPostServer(process.env.REACT_APP_URL+"/widget/set", adddb, props.token);
             
             setNameFound("Game not found")
             setNumberPeople(-1)
@@ -79,9 +79,15 @@ export function ContentSteam(props) {
     }
 
     async function Getdata() {
-        const message = JSON.stringify({ 'name': props.name, 'widget': "steam" });
-        const data = await requestPostServer(process.env.REACT_APP_URL+"/widget_info_user", message, props.token);
-        ValidateGame(JSON.parse(data).game);
+        var tmp = ''
+        const message = JSON.stringify({ 'route': `widgets/${props.index}`, 'name': props.name, 'token': props.token});
+        const data = await requestPostServer(process.env.REACT_APP_URL+"/get_info_db/", message, props.token);
+        if (JSON.parse(data.message.value).value === '-1') {
+            tmp = 'Arma 3'
+        } else {
+            tmp = JSON.parse(data.message.value).value
+        }
+        ValidateGame(tmp);
     }
 
     useEffect(()=>{
@@ -95,7 +101,7 @@ export function ContentSteam(props) {
     ,[])
 
     return (
-        <Center h="80vh" w="75%" bg={props.color} color="#fff" borderRadius="10px">
+        <Center h="80vh" w="95%" bg={props.color} color="#fff" borderRadius="10px" margin="10px">
             <VStack>
                 <Center p={"30px"}>
                     <Flex>

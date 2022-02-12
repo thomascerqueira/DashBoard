@@ -14,8 +14,6 @@ The make option are:
 * ```make MODE=``` to run both
 
 We need a .env file containing this following value:
-
-firebase data
 * REACT_APP_API_KEY
 * REACT_APP_AUTHDOMAIN
 * REACT_APP_DATABASEURL
@@ -24,24 +22,18 @@ firebase data
 * REACT_APP_MESSASGINGSENDERID
 * REACT_APP_APPID
 * REACT_APP_MEASUREMENTID
-
-weather API
 * REACT_APP_APIWEATHER
 * REACT_APP_WEATHERURL
 * REACT_APP_WEATHERIMG
-
-steam API
 * REACT_APP_KEY_STEAM
 * REACT_APP_STEAM_URL
 * REACT_APP_STEAM_LIST
 * REACT_APP_STEAM_INFO_GAME
-
-cinema API
 * REACT_APP_CINEMA_API_KEY
 * REACT_APP_CINEMA_READ_ACCESS_TOKEN
 * REACT_APP_TOKEN
 * REACT_APP_URL
-
+* REACT_APP_GIPHY_KEY
 
 
 ## Services
@@ -55,3 +47,7 @@ cinema API
 |**Cinema**| Print a list of recent film |
 ||Print image of the film|
 ||Print the description of the film|
+|**Giphy**| Show some gif about the researched word|
+||When clicked open the gif site|
+|**Location**| Show 5 cities from the ZIP Code|
+|**Pokemon**| Show the pokemon from the search|

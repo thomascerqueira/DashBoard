@@ -7,13 +7,12 @@ import {
   useColorModeValue,
   Stack,
   Link,
-  useColorMode,
   Text,
 } from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { useNavigate } from "react-router-dom";
 
 function NavBar(props) {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const navigate = useNavigate();
 
   function nav(up) {
     window.scrollTo({
@@ -23,16 +22,14 @@ function NavBar(props) {
   }
   
   return (
-    <Box w={"100%"} zIndex="1" position="fixed" bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+    <Box w={"100%"} zIndex="1" bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
         <Link style={{ textDecoration: 'none' }} onClick={() => nav(0)}>Dashboard</Link>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
-              <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-              </Button>
                <Menu>
                 <MenuButton
+                onClick={() => navigate("/",)}
                   as={Button}
                   >
                   <Text>{props.login}</Text>
